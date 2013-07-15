@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/*	I hate 10^9	*/
 typedef long long int i64_t
 
 int main() {
