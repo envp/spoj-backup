@@ -1,3 +1,6 @@
+#Other crap
+.hex	#Plaintext hexdump of a file
+
 ####################
 ## C/C++ executables
 ####################

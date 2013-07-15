@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 
-#define RADIX 4000000007LL
-
 /**
 *	time_t:
 *	This is the data type used to represent calendar time. In the GNU C library and other POSIX-compliant implementations.
@@ -15,11 +13,11 @@ typedef long long int i64_t;
 i64_t mod_exp(i64_t base, i64_t exp, i64_t rad);
 
 int main() {
-	i64_t cipher, residue;
+	i64_t cipher, residue, radix = 4000000007;
 	time_t epoch_s;
 	while(scanf("%lld", &cipher) == 1) {
 		//Check if a**((p-1)/2) == 1 MOD p to determine existence of solutions to the quadratice congruence.
-		residue = mod_exp(cipher, (RADIX-1LL)/2LL, RADIX);
+		residue = mod_exp(cipher, (radix-1)/2, radix);
 		if(residue == 1) {
 			//Exatly 2 solutions exist
 		}

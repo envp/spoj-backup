@@ -2,7 +2,7 @@
 #define MEMSIZE 32768
 #define SLENGTH 128000
 /*As of now everthing except loops will work, I think...
-* ASCII REFERENCE: '%'=37 | ','=44 | '.'=46 | '>'=62 | '<'=60 | '+'=43 | '-'=45 | '['=91 | ']'=93 
+* ASCII REFERENCE: '%' = 37 | ',' = 44 | '.' = 46 | '>' = 62 | '<' = 60 | '+' = 43 | '-' = 45 | '[' = 91 | ']' = 93
 * A loop parser needs to be made :|
 * No support for comments yet. '%'
 * This code might just be too memory intensive.
