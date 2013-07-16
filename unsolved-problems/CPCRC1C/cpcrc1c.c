@@ -14,7 +14,7 @@
 typedef long long int i64_t;                                                    /*	9log2(10) ~ 9/0.3010 < 9/0.3 = 30	*/
 
 inline i64_t sumOfDigits(i64_t x);
-inline int power(int b, int e)
+inline int power(int b, int e);
 
 int main() {
 	
@@ -26,7 +26,7 @@ int main() {
 		i64_t low, high;
 		low = sumOfDigits(a);
 		high = sumOfDigits(b);
-		printf("%lld", high - low);
+		printf("%lld\n", high - low);
 	}
 	return 0;
 }
@@ -47,10 +47,15 @@ inline i64_t sumOfDigits(i64_t x) {
 		++i;
 	}
 
-	/*	Handle the incomplete part of the number i.e for 473 we have to handle the sum of digits (except units) for 470...473 => (4 + 7) * 3	*/
-	while( (p = x%BASE) >0) {
-		sum += UNITS(x) * p;
-	}
+	/*	Handle the incomplete part of the number i.e for 473 we have to handle the sum of digits (except units) for 470...473 => (4 + 7) * (3 + 1)	*/
+	i = 0;
+	a = x;
+	/*while( (p = a%BASE) >0) {
+		sum += (i>0)?( x%BASE * p):0;
+		a /= BASE;
+		++i;
+	}*/
+	return sum;
 }
 inline int power(int b, int e) {
 	int res;
