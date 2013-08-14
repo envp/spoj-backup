@@ -1,1 +1,1 @@
-$0=2^gsub(/[DFLT]/,X);
+$0=2^gsub(/[DFLT]/,X)

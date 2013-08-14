@@ -1,11 +1,8 @@
 #include <stdio.h>
 
-int main() {
-	int input=0;
-	scanf("%d",&input);
-	while(input!=42) {
-		printf("%d\n",input);
-		scanf("%d",&input);
+int main(i) {
+	while(scanf("%d", &i) && i != 42) {
+		printf("%d\n", i);
 	}
 	return 0;
 }

@@ -59,10 +59,13 @@ int main() {
 				PUT_NEWLINE;
 			}
 			else {
-				for(i = m; i <= n; ++i) {
+				if(m%2 == 0) {
+					m += 1;
+				}
+				for(i = m; i <= n; i += 2) {
 					x = sqrtl(i) + 1;
 					flag = 0;
-					for(j = 2; j < x; ++j) {
+					for(j = 2; j <= x; ++j) {
 						if(*(is_prime + j) && (i % j == 0) ) {
 							flag = 1;
 							break;
@@ -74,10 +77,9 @@ int main() {
 				}
 				PUT_NEWLINE;
 			}
-		free(is_prime);
-
 		t--;
 		}
+		free(is_prime);
 	}
 	else {
 		/* Just a temporary exit fix for a HUGE segfault */
