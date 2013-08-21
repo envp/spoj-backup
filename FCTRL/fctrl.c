@@ -20,7 +20,7 @@ int main() {
 
 inline int zeroes(int n) {
 	int z=0;
-	int f=n;
+ 	int f=n;
 	while(f>0){
 		f/=5;
 		z+=f;

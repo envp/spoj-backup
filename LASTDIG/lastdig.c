@@ -2,38 +2,35 @@
 
 #include <stdio.h>
 
-typedef long long int i64_t;
-i64_t mod_exp(i64_t base, i64_t exp, i64_t rad);
+typedef long long unsigned i64_t;
+i64_t me(i64_t b, i64_t e, i64_t d);
 
-int main() {
-	int t, a, b;
+int main(t) {
+	i64_t a, b, r;
 	scanf("%d", &t);
-	while(t > 0) {
-		scanf("%d %d", &a, &b);
-		a %= 10;
-		if(b == 0) {
-			printf("1\n");
-		}
+	while(t--) {
+		scanf("%llu %llu", &a, &b);
+		a%=10;
+		if(!b)
+   			r=1;
 		else{
-			if(a == 0 || a == 1 || a == 5 || a ==6) {
-				printf("%d\n", a);
-			}
-			else {
-				printf("%lld\n", mod_exp(a, b, 10));
-			}
+			if(a == 0 || a == 1 || a == 5 || a ==6)
+				r=a;
+			else
+				r=me(a, b, 10);
 		}
-		t--;
+		printf("%llu\n", r);
 	}
 	return 0;
 }
-i64_t mod_exp(i64_t base, i64_t exp, i64_t rad) {
-	i64_t res = 1;
-	while(exp>0) {
-		if(exp%2 == 1) {
-			res = (res*base)%rad;
+i64_t me(i64_t b, i64_t e, i64_t d) {
+	i64_t r = 1;
+	while(e>0) {
+		if(e&1) {
+			r=(r*b)%d;
 		}
-		exp >>= 1;
-		base = (base*base)%rad;
+		e >>= 1;
+		b = (b*b)%d;
 	}
-	return res;
+	return r;
 }

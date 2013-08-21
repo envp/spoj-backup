@@ -48,36 +48,25 @@ int main() {
 
 	    /* The actual IO */
 	    scanf("%d", &t);
-	    while(t > 0) {
-			scanf("%lld %lld", &m, &n);
-			if(n < sieve_length) {
-				for(i = m; i < n + 1; ++i) {
-					if(*(is_prime + i)) {
-						printf("%lld\n", i);
-					}
-				}
-				PUT_NEWLINE;
+	    while(t--) {
+			scanf("%llu %llu", &m, &n);
+			if(m == 1) {
+				++m;
 			}
-			else {
-				if(m%2 == 0) {
-					m += 1;
-				}
-				for(i = m; i <= n; i += 2) {
-					x = sqrtl(i) + 1;
-					flag = 0;
-					for(j = 2; j <= x; ++j) {
-						if(*(is_prime + j) && (i % j == 0) ) {
-							flag = 1;
-							break;
-						}
-					}
-					if(flag == 0) {
-						printf("%d\n", i);
+			for(; m <= n; ++m) {
+				x = (ui64_t)sqrtl(m);
+				flag = 0;
+				for(i = 2; is_prime[i] && i < x; ++i) {
+					if(m % i == 0) {
+						flag = 1;
+						break;
 					}
 				}
-				PUT_NEWLINE;
+				if(flag == 0) {
+					printf("%llu\n", m);
+					PUT_NEWLINE;
+				}
 			}
-		t--;
 		}
 		free(is_prime);
 	}

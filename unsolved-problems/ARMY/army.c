@@ -1,14 +1,25 @@
 #include <stdio.h>
 
 int main() {
-	int t, ng, nm;
-	int *godzilla, *mecha
-	scanf("%d", &t);
-	while(t--) {
-		scanf("%d %d", &ng, &nm);
-		godzilla = (int *)malloc(ng*sizeof(int));
-		mecha = (int *)malloc(nm*sizeof(int));
-		
+    int t, ng, nm, maxg, maxm, g, m;
+    scanf("%d", &t);
+    while(t--) {
+    	scanf("%d %d", &ng, &nm);
+    	maxg = maxm = -1;
+    	while(ng--) {
+	        scanf("%d", &g);
+    	    if(g > maxg) maxg = g;
+    	}
+    	while(nm--) {
+	        scanf("%d", &m);
+	        if(m > maxm) maxm = m;
+	    }
+    	if(maxg >= maxm) {
+	        printf("Godzilla\n");
+	    }
+	    else {
+	        printf("MechaGodzilla\n");
+	    }
 	}
-	return 0;
+    return 0;
 }
