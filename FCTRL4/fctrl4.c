@@ -73,4 +73,6 @@ int main() {
 *			= 1,(1,2,6,4),2,(2,4,2,8),8,(8,6,8,2),8,(8,6,8,2),4,(8,8,4,6)...					(2)
 *	A little bit of number theory magic on (1) gives:
 *	N! = (5n!) = (5^n) * (n!) * product[k in 0..n-1]((5k+1)(5k+2)(5k+3)(5k+4))
+*	So (5n+m)! = (5n)! * (5n+1)..(5n+m) mod 10		(0<m<5)										(3)
+*	Our only task is to estimate (5n)! followed by trivial multiplication
 */
